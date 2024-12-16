@@ -49,6 +49,21 @@ const routes = [
 
     {
         method: 'POST',
+        path: '/user',
+        handler: (request, h) => {
+            const { username } = request.payload;
+            const response = h.response(`welcome ${username}`).code(200);
+            response.type('application/json');
+            response.header('Content-Type', 'application/json');
+
+            return response;
+        }
+
+    },
+
+
+    {
+        method: 'POST',
         path: '/login',
         handler: (request, h) => {
             const { username, password } = request.payload;
